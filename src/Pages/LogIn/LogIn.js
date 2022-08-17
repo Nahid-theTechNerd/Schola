@@ -3,6 +3,7 @@ import Title from "../../Components/Title";
 import { useForm } from "react-hook-form";
 import image from "../../Assets/Images/login.png";
 import classes from "../SignUp/SignUp.module.css";
+import { Link } from "react-router-dom";
 
 export default function LogIn() {
   const { register, handleSubmit } = useForm();
@@ -44,9 +45,9 @@ export default function LogIn() {
           <p className="text-sm pt-2 text-center">
             {" "}
             Have no account?{" "}
-            <a href="\" className="text-blue-700">
+            <Link to="/signup" className="text-blue-700">
               SignUp here.
-            </a>
+            </Link>
           </p>
         </div>
       </section>
