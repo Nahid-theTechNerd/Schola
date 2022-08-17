@@ -15,49 +15,82 @@ export default function SignUp() {
   return (
     <div className="mx-10 mt-5">
       <Title></Title>
-      <section className="signup flex justify-around align-center">
+      <section className="signup flex justify-around items-center">
         <div className="image-container w-[40%]">
           <img src={image} alt="" />
         </div>
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col w-1/2 justify-center items-center gap-2"
-          noValidate
-        >
-          <h1 className="text-xl font-semibold py-2">SignUp</h1>
-          {/* full name input */}
-          <input
-            className={classes.txt__input}
-            placeholder="Full Name"
-            type="text"
-            {...register("name", { required: "You must fill this field!" })}
-          />
-          <p className={classes.error_msg}>{errors.name?.message}</p>
-          {/* email address input */}
-          <input
-            className={classes.txt__input}
-            placeholder="Email Address"
-            type="email"
-            {...register("email", {
-              required: "You must fill this field!",
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: "Invalid email address!",
-              },
-            })}
-          />
-          <p className={classes.error_msg}>{errors.email?.message}</p>
-          {/* password  input */}
-          <input
-            className={classes.txt__input}
-            placeholder="Password"
-            type="password"
-            {...register("password", { required: "You must fill this field!" })}
-          />
-          <p className={classes.error_msg}>{errors.password?.message}</p>
-
-          <input type="submit" className={`btn-gradient ${classes.button}`} />
-        </form>
+        <div className="w-1/2">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col justify-center items-center gap-2"
+            noValidate
+          >
+            <h1 className="text-xl font-semibold py-2">SignUp</h1>
+            {/* full name input */}
+            <input
+              className={classes.txt__input}
+              placeholder="Full Name"
+              type="text"
+              {...register("name", { required: "You must fill this field!" })}
+            />
+            <p className={classes.error_msg}>{errors.name?.message}</p>
+            {/* email address input */}
+            <input
+              className={classes.txt__input}
+              placeholder="Email Address"
+              type="email"
+              {...register("email", {
+                required: "You must fill this field!",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: "Invalid email address!",
+                },
+              })}
+            />
+            <p className={classes.error_msg}>{errors.email?.message}</p>
+            {/* password  input */}
+            <input
+              className={classes.txt__input}
+              placeholder="Password"
+              type="password"
+              {...register("password", {
+                required: "You must fill this field!",
+                minLength: {
+                  value: "8",
+                  message: "Password must be at least 8 characters long!",
+                },
+                pattern: {
+                  value:
+                    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/i,
+                  message:
+                    "Password must have an uppercase, a lowercase, a number and a special character!",
+                },
+              })}
+            />
+            <p className={classes.error_msg}>{errors.password?.message}</p>
+            {/* Sign Up as a  */}
+            <select
+              className={classes.selection}
+              {...register("role", { required: "You must fill this field!" })}
+            >
+              <option disabled selected value>
+                SignUp as a
+              </option>
+              <option value="student">Student</option>
+              <option value="teacher">Teacher</option>
+            </select>
+            <p className={classes.error_msg}>{errors.role?.message}</p>
+            {/* Submit form  */}
+            <input type="submit" className={`btn-gradient ${classes.button}`} />
+          </form>
+          <p className="text-sm pt-2 text-center">
+            {" "}
+            Already have account?{" "}
+            <a href="\" className="text-blue-700">
+              Login here.
+            </a>
+          </p>
+        </div>
       </section>
     </div>
   );
