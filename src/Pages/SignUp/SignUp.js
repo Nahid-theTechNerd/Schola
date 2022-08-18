@@ -14,7 +14,7 @@ export default function SignUp() {
   const onSubmit = (data) => console.log(data);
 
   return (
-    <div className="mx-10 mt-5">
+    <div className={`mx-10 mt-5 ${classes.single_page}`} >
       <Title></Title>
       <section className="signup flex justify-around items-center">
         <div className="image-container w-[40%]">
@@ -87,7 +87,7 @@ export default function SignUp() {
           <p className="text-sm pt-2 text-center">
             {" "}
             Already have account?{" "}
-            <Link to="/login" className="text-blue-700">
+            <Link to="/login">
               Login here.
             </Link>
           </p>

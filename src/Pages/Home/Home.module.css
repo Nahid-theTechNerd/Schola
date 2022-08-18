@@ -1,0 +1,9 @@
+.header {
+  background: linear-gradient(to right, rgb(255, 255, 255), rgb(203, 236, 255));
+  box-shadow: 4px 0 12px #eee;
+}
+
+.sidebar {
+  background-color: rgba(0, 162, 255, 0.1);
+  box-shadow: 0 4px 12px #eee;
+}

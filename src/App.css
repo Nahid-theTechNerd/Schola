@@ -30,3 +30,7 @@ img {
   background-image: linear-gradient(to right, #130cb7 50%, #52e5e7 100%);
   background-position: 100% 0;
 }
+
+a {
+  @apply text-url;
+}
