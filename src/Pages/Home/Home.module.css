@@ -7,3 +7,7 @@
   background-color: rgba(0, 162, 255, 0.1);
   box-shadow: 0 4px 12px #eee;
 }
+
+.active {
+  @apply text-url;
+}

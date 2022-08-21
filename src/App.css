@@ -34,3 +34,29 @@ img {
 a {
   @apply text-url;
 }
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.active {
+  background: linear-gradient(to right, #130cb7, #52e5e7);
+  color: #fff;
+  fill: #fff;
+}
+.inactive {
+  background: none;
+  color: #333;
+  fill: #333;
+}
+.nav-link {
+  background: inherit;
+}

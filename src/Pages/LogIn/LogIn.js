@@ -40,7 +40,11 @@ export default function LogIn() {
             />
             <p></p>
             {/* Submit form  */}
-            <input type="submit" className={`btn-gradient ${classes.button}`} />
+            <input
+              type="submit"
+              className={`btn-gradient ${classes.button}`}
+              value="Login"
+            />
           </form>
           <p className="text-sm pt-2 text-center">
             {" "}

@@ -14,7 +14,7 @@ export default function SignUp() {
   const onSubmit = (data) => console.log(data);
 
   return (
-    <div className={`mx-10 mt-5 ${classes.single_page}`} >
+    <div className={`mx-10 mt-5 ${classes.single_page}`}>
       <Title></Title>
       <section className="signup flex justify-around items-center">
         <div className="image-container w-[40%]">
@@ -72,9 +72,13 @@ export default function SignUp() {
             {/* Sign Up as a  */}
             <select
               className={classes.selection}
-              {...register("role", { required: "You must fill this field!" })}
+              {...register("role", {
+                required: "You must fill this field!",
+                minLength: { value: 3, message: "You must fill this field!" },
+              })}
+              defaultValue="0"
             >
-              <option disabled selected value>
+              <option disabled value="0">
                 SignUp as a
               </option>
               <option value="student">Student</option>
@@ -82,14 +86,11 @@ export default function SignUp() {
             </select>
             <p className={classes.error_msg}>{errors.role?.message}</p>
             {/* Submit form  */}
-            <input type="submit" className={`btn-gradient ${classes.button}`} />
+            <input type="submit" className={`btn-gradient ${classes.button}`} value="SignUp"/>
           </form>
           <p className="text-sm pt-2 text-center">
             {" "}
-            Already have account?{" "}
-            <Link to="/login">
-              Login here.
-            </Link>
+            Already have account? <Link to="/login">Login here.</Link>
           </p>
         </div>
       </section>

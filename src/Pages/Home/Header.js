@@ -7,6 +7,7 @@ import {
   faMagnifyingGlass,
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 import avatar from "../../Assets/Images/avatar.png";
 
 export default function Header() {
@@ -28,9 +29,11 @@ export default function Header() {
             />
           </button>
         </div>
-        <button className="add_class h-7 w-7 rounded flex justify-center items-center bg-white text-url bg-opacity-50">
-          <FontAwesomeIcon icon={faPlus} />
-        </button>
+        <Link to="/add">
+          <button className="add_class h-7 w-7 rounded flex justify-center items-center bg-white text-url bg-opacity-50">
+            <FontAwesomeIcon icon={faPlus} />
+          </button>
+        </Link>
         <button className="notification h-7 w-7 rounded flex justify-center items-center bg-white text-url bg-opacity-50">
           <FontAwesomeIcon icon={faBell} />
         </button>
