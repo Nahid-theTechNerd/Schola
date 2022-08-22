@@ -44,7 +44,13 @@ export default function AddStudent() {
           className={classes.txt__input}
           placeholder="Title"
           type="text"
-          {...register("title", { required: "You must fill this field!" })}
+          {...register("title", {
+            required: "You must fill this field!",
+            maxLength: {
+              value: 100,
+              message: "Message is too long",
+            },
+          })}
         />
         <p className={classes.error_msg}>{errors.title?.message}</p>
 
@@ -52,7 +58,13 @@ export default function AddStudent() {
         <textarea
           className={classes.txt__input}
           placeholder="Details"
-          {...register("description", { required: false, maxLength: 100 })}
+          {...register("description", {
+            required: false,
+            maxLength: {
+              value: 1000,
+              message: "Message is too long",
+            },
+          })}
         ></textarea>
         <p></p>
         {/* Category  */}

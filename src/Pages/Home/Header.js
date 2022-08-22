@@ -9,8 +9,16 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import avatar from "../../Assets/Images/avatar.png";
+import Dropdown from "./Dropdown";
+import { useState } from "react";
 
 export default function Header() {
+  const [visible, setVisible] = useState(false);
+
+  const profileOnclick = () => {
+    setVisible(!visible);
+  };
+
   return (
     <div
       className={`px-10 py-5 flex justify-between items-center ${classes.header}`}
@@ -37,10 +45,11 @@ export default function Header() {
         <button className="notification h-7 w-7 rounded flex justify-center items-center bg-white text-url bg-opacity-50">
           <FontAwesomeIcon icon={faBell} />
         </button>
-        <div className="profile h-[30px] w-[30px] rounded-full overflow-hidden bg-primary">
-          <button>
+        <div className="profile h-[30px] w-[30px] rounded-full overflow-hidden bg-[#eee]">
+          <button onClick={profileOnclick}>
             <img src={avatar} alt="" />
           </button>
+          <Dropdown visible={visible}></Dropdown>
         </div>
       </div>
     </div>
