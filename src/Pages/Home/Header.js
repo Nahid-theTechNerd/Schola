@@ -38,7 +38,9 @@ export default function Header() {
           <FontAwesomeIcon icon={faBell} />
         </button>
         <div className="profile h-[30px] w-[30px] rounded-full overflow-hidden bg-primary">
-          <img src={avatar} alt="" />
+          <button>
+            <img src={avatar} alt="" />
+          </button>
         </div>
       </div>
     </div>

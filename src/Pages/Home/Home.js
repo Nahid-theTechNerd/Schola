@@ -6,13 +6,12 @@ import Dashboard from "../Dashboard/Dashboard";
 import { Routes, Route } from "react-router-dom";
 import ClassRoom from "../ClassRoom/ClassRoom";
 import AddStudent from "../Add/AddStudent";
+import AddTeacher from "./../Add/AddTeacher";
 
 export default function Home() {
-  // const role = "student";
+  const role = "teacher";
   return (
-    <div
-      className={`${classes.home} h-screen w-full flex flex-col`}
-    >
+    <div className={`${classes.home} h-screen w-full flex flex-col`}>
       <div className="header">
         <Header></Header>
       </div>
@@ -22,7 +21,16 @@ export default function Home() {
           <Routes>
             <Route index path="/dashboard" element={<Dashboard />}></Route>
             <Route path="/classroom" element={<ClassRoom />}></Route>
-            <Route path="/add" element={<AddStudent />}></Route>
+            {role === "student" ? (
+              <Route path="/add" element={<AddStudent />}></Route>
+            ) : (
+              ""
+            )}
+            {role === "teacher" ? (
+              <Route path="/add" element={<AddTeacher />}></Route>
+            ) : (
+              ""
+            )}
           </Routes>
         </div>
       </div>
