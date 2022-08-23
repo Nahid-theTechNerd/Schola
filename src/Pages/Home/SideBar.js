@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./Home.module.css";
 import SideBarElement from "./SideBarElement";
 
-export default function SideBar() {
+export default function SideBar({role}) {
   const elements = [
     {
       title: "Dashboard",
@@ -60,7 +60,6 @@ export default function SideBar() {
     },
   ];
 
-  const role = "teacher";
   const navElements = elements.filter((element) =>
     element.role.find((info) => info === role)
   );

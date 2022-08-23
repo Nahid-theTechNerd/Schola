@@ -97,3 +97,7 @@ input[type="number"] {
   gap: 20px;
   row-gap: 20px;
 }
+
+.notification {
+  display: block;
+}

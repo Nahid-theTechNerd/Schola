@@ -12,6 +12,7 @@ export default function ClassRoom() {
       teacher: {
         name: "Habib Ehsanul Haque",
       },
+      notifications: true,
     },
     {
       id: "2001",
@@ -21,6 +22,7 @@ export default function ClassRoom() {
       teacher: {
         name: "Julker Nayeem",
       },
+      notifications: false,
     },
     {
       id: "2002",
@@ -31,6 +33,7 @@ export default function ClassRoom() {
       teacher: {
         name: "Julker Nayeem",
       },
+      notifications: true,
     },
   ];
 
@@ -48,6 +51,7 @@ export default function ClassRoom() {
               teacher={card.teacher}
               date={card.date}
               time={card.time}
+              notification={card.notifications}
               button="Visit"
             ></LessonCard>
           </div>

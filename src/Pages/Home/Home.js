@@ -16,7 +16,7 @@ export default function Home() {
         <Header></Header>
       </div>
       <div className="body flex-1 flex">
-        <SideBar></SideBar>
+        <SideBar role={role}></SideBar>
         <div className="main__body flex-1 h-full overflow-scroll">
           <Routes>
             <Route index path="/dashboard" element={<Dashboard />}></Route>
