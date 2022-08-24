@@ -39,6 +39,7 @@ export default function AddTeacher() {
               price={card.price}
               date={card.date}
               time={card.time}
+              path=""
               button="Take Lesson"
             ></LessonCard>
           ))}

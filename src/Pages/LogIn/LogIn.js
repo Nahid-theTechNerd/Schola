@@ -28,6 +28,7 @@ export default function LogIn() {
               className={classes.txt__input}
               placeholder="Email Address"
               type="email"
+              autoComplete="on"
               {...register("email")}
             />
             <p></p>
@@ -36,6 +37,7 @@ export default function LogIn() {
               className={classes.txt__input}
               placeholder="Password"
               type="password"
+              autoComplete="current-password"
               {...register("password")}
             />
             <p></p>

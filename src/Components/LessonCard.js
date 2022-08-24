@@ -5,7 +5,7 @@ import avatar from "../Assets/Images/avatar.png";
 export default function LessonCard(props) {
   return (
     <div className="lesson-card rounded mb-3 relative">
-      <Link to="" className="text-[#333]">
+      <Link to={props.path} className="text-[#333]">
         <h1 className="lesson-card-title font-semibold text-lg py-1">
           {props.title}
         </h1>
@@ -35,7 +35,9 @@ export default function LessonCard(props) {
             {props.date} {props.time}
           </div>
         </div>
-        <div className="btn-gradient">{props.button}</div>
+        <Link to={props.path}>
+          <div className="btn-gradient">{props.button}</div>
+        </Link>
       </div>
       <div
         className={`bg-url w-2 h-2 rounded-full absolute top-2 right-2 hidden ${

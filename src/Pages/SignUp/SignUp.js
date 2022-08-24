@@ -11,7 +11,17 @@ export default function SignUp() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+
+  const onSubmit = (data) => {
+    const options = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    };
+    fetch("http://classroommern.herokuapp.com/user/register", options)
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  };
 
   return (
     <div className={`mx-10 mt-5 ${classes.single_page}`}>
@@ -40,6 +50,7 @@ export default function SignUp() {
               className={classes.txt__input}
               placeholder="Email Address"
               type="email"
+              autoComplete="on"
               {...register("email", {
                 required: "You must fill this field!",
                 pattern: {
@@ -54,6 +65,7 @@ export default function SignUp() {
               className={classes.txt__input}
               placeholder="Password"
               type="password"
+              autoComplete="current-password"
               {...register("password", {
                 required: "You must fill this field!",
                 minLength: {
@@ -86,7 +98,11 @@ export default function SignUp() {
             </select>
             <p className={classes.error_msg}>{errors.role?.message}</p>
             {/* Submit form  */}
-            <input type="submit" className={`btn-gradient ${classes.button}`} value="SignUp"/>
+            <input
+              type="submit"
+              className={`btn-gradient ${classes.button}`}
+              value="SignUp"
+            />
           </form>
           <p className="text-sm pt-2 text-center">
             {" "}

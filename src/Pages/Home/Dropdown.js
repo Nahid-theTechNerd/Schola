@@ -12,7 +12,7 @@ export default function Dropdown(props) {
 
   return (
     <div
-      className={`absolute top-14 right-8 bg-white bg-opacity-50 p-4 rounded ${
+      className={`absolute top-14 right-8 bg-white bg-opacity-50 p-4 rounded z-50 ${
         props.visible === true ? "visible" : "hidden"
       }`}
     >
