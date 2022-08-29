@@ -9,7 +9,7 @@ import axios from "axios";
 axios.defaults.baseURL = "http://192.168.68.158:5000/";
 
 const token = localStorage.getItem("token");
-axios.defaults.headers.common['Authorization'] = "Bearer " + token;
+axios.defaults.headers.common["Authorization"] = "Bearer " + token;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

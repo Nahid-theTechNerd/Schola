@@ -15,6 +15,7 @@ export default function LessonMenu() {
         <SideBarElement
           title={menuItem.name}
           path={menuItem.path}
+          key={menuItem.path}
         ></SideBarElement>
       ))}
     </div>
