@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import image from "../../Assets/Images/signup.png";
 import classes from "./SignUp.module.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function SignUp() {
   const {
@@ -13,14 +14,10 @@ export default function SignUp() {
   } = useForm();
 
   const onSubmit = (data) => {
-    const options = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    };
-    fetch("http://classroommern.herokuapp.com/user/register", options)
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+    axios
+      .post("user/register", data)
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
   };
 
   return (

@@ -53,7 +53,7 @@ export default function ClassRoom() {
               time={card.time}
               notification={card.notifications}
               button="Visit"
-              path="/class"
+              path={`${card.id}/tutorials`}
             ></LessonCard>
           </div>
         ))}

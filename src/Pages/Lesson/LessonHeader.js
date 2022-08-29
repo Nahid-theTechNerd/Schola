@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
-export default function StudentLesson() {
+export default function LessonHeader() {
   const prev = useNavigate();
   const lesson = {
     title: "Solidity Programming Language",

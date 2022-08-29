@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import avatar from "../../Assets/Images/avatar.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 export default function Dropdown(props) {
   const user = {
     name: "Nahid Hasan",
     role: "Student",
   };
-
+  const navigate = useNavigate();
   return (
     <div
       className={`absolute top-14 right-8 bg-white bg-opacity-50 p-4 rounded z-50 ${
@@ -33,7 +34,10 @@ export default function Dropdown(props) {
       <hr className="text-[#aaa] py-1 mt-2" />
       <button
         className="btn-gradient  gap-2 w-full"
-        onClick={() => console.log("Logout")}
+        onClick={() => {
+          localStorage.removeItem("token");
+          navigate("/login");
+        }}
       >
         <FontAwesomeIcon icon={faArrowRightFromBracket} />
         <span> </span>

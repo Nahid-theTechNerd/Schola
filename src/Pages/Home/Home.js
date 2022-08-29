@@ -7,7 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import ClassRoom from "../ClassRoom/ClassRoom";
 import AddStudent from "../Add/AddStudent";
 import AddTeacher from "./../Add/AddTeacher";
-import StudentLesson from "../Lesson/StudentLesson";
+import Lesson from "../Lesson/Lesson";
 
 export default function Home() {
   const role = "teacher";
@@ -22,7 +22,7 @@ export default function Home() {
           <Routes>
             <Route index path="/dashboard" element={<Dashboard />}></Route>
             <Route path="/classroom" element={<ClassRoom />}></Route>
-            <Route path="/class" element={<StudentLesson />}></Route>
+            <Route path="/classroom/:id/*" element={<Lesson />}></Route>
             {role === "student" ? (
               <Route path="/add" element={<AddStudent />}></Route>
             ) : (

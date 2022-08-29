@@ -4,10 +4,23 @@ import { useForm } from "react-hook-form";
 import image from "../../Assets/Images/login.png";
 import classes from "../SignUp/SignUp.module.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function LogIn() {
+  const navigate = useNavigate();
+
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    axios
+      .post("user/login", data)
+      .then((response) => {
+        localStorage.setItem("token", response.data.token);
+        navigate("/dashboard");
+        console.log(response.data);
+      })
+      .catch((errors) => console.error(errors));
+  };
 
   return (
     <div className={`mx-10 mt-5 ${classes.single_page}`}>
