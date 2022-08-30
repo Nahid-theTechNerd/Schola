@@ -8,7 +8,7 @@ import Members from "../Members/Members";
 
 export default function Lesson() {
   return (
-    <div className="flex h-screen w-full ">
+    <div className="flex h-full w-full ">
       <div className="lesson-container flex-1 flex flex-col">
         <LessonHeader></LessonHeader>
         <div className="lesson-body mx-6 flex-1">

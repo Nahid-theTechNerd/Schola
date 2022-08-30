@@ -12,13 +12,13 @@ import Lesson from "../Lesson/Lesson";
 export default function Home() {
   const role = "teacher";
   return (
-    <div className={`${classes.home} h-screen w-full flex flex-col`}>
+    <div className={`${classes.home} h-screen w-full flex flex-col overflow-hidden`}>
       <div className="header">
         <Header></Header>
       </div>
       <div className="body flex-1 flex">
         <SideBar role={role}></SideBar>
-        <div className="main__body flex-1 h-full overflow-scroll">
+        <div className="main__body flex-1 h-full overflow-auto">
           <Routes>
             <Route index path="/dashboard" element={<Dashboard />}></Route>
             <Route path="/classroom" element={<ClassRoom />}></Route>
@@ -39,3 +39,5 @@ export default function Home() {
     </div>
   );
 }
+
+
