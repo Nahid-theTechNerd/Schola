@@ -4,8 +4,14 @@ import LogIn from "./Pages/LogIn/LogIn";
 import SignUp from "./Pages/SignUp/SignUp";
 import Welcome from "./Pages/Welcome/Welcome";
 import Home from "./Pages/Home/Home";
+// import ProtectedRoute from "./Components/ProtectedRoute";
+import axios from "axios";
 
 function App() {
+  // const isUser = localStorage.getItem("token") ? true : false;
+
+  axios.get("/me").then((res) => console.log(res));
+
   return (
     <div className="App">
       <Router>
@@ -14,6 +20,41 @@ function App() {
           <Route path="/signup" element={<SignUp />}></Route>
           <Route path="/login" element={<LogIn />}></Route>
           <Route path="/*" element={<Home />}></Route>
+
+          {/* --------Conditional Routing--------  */}
+          {/* <Route
+            exact
+            path="/"
+            element={
+              <ProtectedRoute user={!isUser} path="/dashboard">
+                <Welcome></Welcome>
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path="/signup"
+            element={
+              <ProtectedRoute user={!isUser} path="/dashboard">
+                <SignUp></SignUp>
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path="/login"
+            element={
+              <ProtectedRoute user={!isUser} path="/dashboard">
+                <LogIn></LogIn>
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path="/*"
+            element={
+              <ProtectedRoute user={isUser} path="/login">
+                <Home></Home>
+              </ProtectedRoute>
+            }
+          ></Route> */}
         </Routes>
       </Router>
     </div>

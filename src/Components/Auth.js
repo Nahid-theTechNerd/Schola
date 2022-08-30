@@ -1,13 +1,12 @@
 import React from "react";
-import { useState, createContext } from "react";
-import axios from "axios";
+import { createContext, useState } from "react";
 
 export default function Auth() {
-  const [user, setUser] = useState(null);
-  axios.get("me").then((response) => {
-    console.log(response);
-    setUser(response);
+
+  const [user,setUser] = useState({
+    name: null,
+    role: null,
   });
-  console.log(user);
-  return <div></div>;
+
+  return <div>Auth</div>;
 }

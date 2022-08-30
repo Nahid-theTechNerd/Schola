@@ -13,7 +13,7 @@ export default function Dropdown(props) {
   const navigate = useNavigate();
   return (
     <div
-      className={`absolute top-14 right-8 bg-white bg-opacity-50 p-4 rounded z-50 ${
+      className={`absolute top-14 right-8 bg-white p-4 rounded z-50 ${
         props.visible === true ? "visible" : "hidden"
       }`}
     >
