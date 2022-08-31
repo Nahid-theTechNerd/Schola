@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Tutorials from "../Tutorials/Tutorials";
 import Materials from "../Materials/Materials";
 import Members from "../Members/Members";
+import Live from "../Live/Live"
 
 export default function Lesson() {
   return (
@@ -16,6 +17,7 @@ export default function Lesson() {
             <Route exact path="tutorials" element={<Tutorials />} />
             <Route path="materials" element={<Materials />} />
             <Route path="members" element={<Members />} />
+            <Route path="live" element={<Live />} />
           </Routes>
         </div>
       </div>

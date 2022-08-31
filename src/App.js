@@ -5,13 +5,8 @@ import SignUp from "./Pages/SignUp/SignUp";
 import Welcome from "./Pages/Welcome/Welcome";
 import Home from "./Pages/Home/Home";
 // import ProtectedRoute from "./Components/ProtectedRoute";
-import axios from "axios";
 
 function App() {
-  // const isUser = localStorage.getItem("token") ? true : false;
-
-  axios.get("/me").then((res) => console.log(res));
-
   return (
     <div className="App">
       <Router>

@@ -8,11 +8,14 @@ import ClassRoom from "../ClassRoom/ClassRoom";
 import AddStudent from "../Add/AddStudent";
 import AddTeacher from "./../Add/AddTeacher";
 import Lesson from "../Lesson/Lesson";
+import Calendar from "../Calendar/Calendar";
 
 export default function Home() {
   const role = "teacher";
   return (
-    <div className={`${classes.home} h-screen w-full flex flex-col overflow-hidden`}>
+    <div
+      className={`${classes.home} h-screen w-full flex flex-col overflow-hidden`}
+    >
       <div className="header">
         <Header></Header>
       </div>
@@ -23,6 +26,8 @@ export default function Home() {
             <Route index path="/dashboard" element={<Dashboard />}></Route>
             <Route path="/classroom" element={<ClassRoom />}></Route>
             <Route path="/classroom/:id/*" element={<Lesson />}></Route>
+            <Route path="/calendar" element={<Calendar />}></Route>
+
             {role === "student" ? (
               <Route path="/add" element={<AddStudent />}></Route>
             ) : (
@@ -39,5 +44,3 @@ export default function Home() {
     </div>
   );
 }
-
-

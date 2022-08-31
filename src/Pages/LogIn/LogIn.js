@@ -16,6 +16,7 @@ export default function LogIn() {
       .post("user/login", data)
       .then((response) => {
         localStorage.setItem("token", response.data.token);
+        document.cookie = `token=${response.data.token}`;
         navigate("/dashboard");
         console.log(response.data);
       })

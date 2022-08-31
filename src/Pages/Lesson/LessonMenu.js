@@ -7,7 +7,7 @@ export default function LessonMenu() {
     { name: "Materials", path: "materials" },
     { name: "Conversations", path: "conversations" },
     { name: "Members", path: "members" },
-    { name: "Classwork", path: "classwork" },
+    { name: "Live", path: "live" },
   ];
   return (
     <div className="">
