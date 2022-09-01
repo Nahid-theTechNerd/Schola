@@ -9,6 +9,13 @@ export default function Calendar() {
     { title: "Solidity Class", date: "2022-09-01", time: "10:30AM" },
     { title: "Solidity Class", date: "2022-09-01", time: "10:30AM" },
     { title: "Extra Class", date: "2022-09-20", time: "10:30AM" },
+    { title: "Class Test", date: "2022-09-15", time: "10:30AM" },
+    { title: "Extra Class", date: "2022-09-20", time: "10:30AM" },
+    { title: "Class Test", date: "2022-09-15", time: "10:30AM" },
+    { title: "Extra Class", date: "2022-09-20", time: "10:30AM" },
+    { title: "Class Test", date: "2022-09-15", time: "10:30AM" },
+    { title: "Extra Class", date: "2022-09-20", time: "10:30AM" },
+    { title: "Class Test", date: "2022-09-15", time: "10:30AM" },
   ];
 
   return (
@@ -16,11 +23,10 @@ export default function Calendar() {
       <div>
         <h1 className="text-[20px] font-semibold pb-4">Calendar</h1>
       </div>
-      <div className="div flex gap-4 w-full h-full">
+      <div className="div flex gap-4 w-full">
         <div className="event flex-1">
           <h1 className="Events text-[1.75em] ">Events</h1>
-          <div className="details">
-            {/* TODO: Event list will be added here */}
+          <div className="details h-[52%] overflow-scroll">
             {events.map((event) => (
               <EventCard
                 title={event.title}
