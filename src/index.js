@@ -5,8 +5,8 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import axios from "axios";
 
-// axios.defaults.baseURL = "http://classroommern.herokuapp.com/";
-axios.defaults.baseURL = "http://192.168.68.158:5000/";
+axios.defaults.baseURL = "http://classroommern.herokuapp.com/";
+// axios.defaults.baseURL = "http://192.168.68.158:5000/";
 
 const token = localStorage.getItem("token");
 axios.defaults.headers.common["Authorization"] = "Bearer " + token;

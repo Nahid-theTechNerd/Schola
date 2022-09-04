@@ -5,8 +5,13 @@ import SignUp from "./Pages/SignUp/SignUp";
 import Welcome from "./Pages/Welcome/Welcome";
 import Home from "./Pages/Home/Home";
 // import ProtectedRoute from "./Components/ProtectedRoute";
+// import axios from "axios";
 
 function App() {
+  // axios
+  //   .get("user/profile")
+  //   .then((response) => console.log(response))
+  //   .catch((err) => console.log(err));
   return (
     <div className="App">
       <Router>
