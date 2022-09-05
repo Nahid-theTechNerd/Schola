@@ -11,6 +11,9 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem("token"));
+
+  axios.defaults.headers.common["Authorization"] = "Bearer " + token;
 
   useEffect(() => {
     axios
@@ -22,11 +25,12 @@ function App() {
         }
       })
       .catch((err) => console.log(err));
-  }, [user]);
+  }, [user, token]);
+  console.log(user);
 
   return (
     <div className="App">
-      <AuthContext.Provider value={{user, setUser}}>
+      <AuthContext.Provider value={{ user, setUser, token, setToken }}>
         <Router>
           <Routes>
             <Route exact path="/" element={<Welcome />}></Route>

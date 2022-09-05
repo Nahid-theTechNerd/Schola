@@ -6,9 +6,11 @@ import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
 export default function Dropdown(props) {
+  // const fullname = props.user? props.user.name : "Nahid"
   const user = {
-    name: "Nahid Hasan",
-    role: "student",
+    name: props.user ? props.user.name : "Hello Mr.",
+    role: props.user ? props.user.role : "Student",
+    
   };
 
   const navigate = useNavigate();

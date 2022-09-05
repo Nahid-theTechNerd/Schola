@@ -6,9 +6,13 @@ import classes from "../SignUp/SignUp.module.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import AuthContext from "../../Components/Auth";
 
 export default function LogIn() {
   const navigate = useNavigate();
+  const { setUser } = useContext(AuthContext);
+  const { setToken } = useContext(AuthContext);
 
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
@@ -18,6 +22,8 @@ export default function LogIn() {
         localStorage.setItem("token", response.data.token);
         document.cookie = `token=${response.data.token}`;
         navigate("/dashboard");
+        setUser(null);
+        setToken(response.data.token);
         console.log(response.data);
       })
       .catch((errors) => console.error(errors));
