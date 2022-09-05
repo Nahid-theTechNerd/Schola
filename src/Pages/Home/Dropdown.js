@@ -8,8 +8,9 @@ import { useNavigate } from "react-router-dom";
 export default function Dropdown(props) {
   const user = {
     name: "Nahid Hasan",
-    role: "Student",
+    role: "student",
   };
+
   const navigate = useNavigate();
   return (
     <div
@@ -22,8 +23,8 @@ export default function Dropdown(props) {
           <img src={avatar} alt="" />
         </div>
         <div className="info">
-          <p className=" font-semibold">{user.name}</p>
-          <p className="text-sm">{user.role}</p>
+          <p className=" font-semibold">{user.name ? user.name : ""}</p>
+          <p className="text-sm">{user.role ? user.role : ""}</p>
         </div>
       </div>
       <hr className="text-[#aaa] py-1 mt-2" />

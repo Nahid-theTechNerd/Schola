@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./Home.module.css";
 import SideBarElement from "./SideBarElement";
 
-export default function SideBar({role}) {
+export default function SideBar({ role }) {
   const elements = [
     {
       title: "Dashboard",

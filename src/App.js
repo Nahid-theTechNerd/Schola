@@ -5,24 +5,37 @@ import SignUp from "./Pages/SignUp/SignUp";
 import Welcome from "./Pages/Welcome/Welcome";
 import Home from "./Pages/Home/Home";
 // import ProtectedRoute from "./Components/ProtectedRoute";
-// import axios from "axios";
+import axios from "axios";
+import AuthContext from "./Components/Auth";
+import { useState, useEffect } from "react";
 
 function App() {
-  // axios
-  //   .get("user/profile")
-  //   .then((response) => console.log(response))
-  //   .catch((err) => console.log(err));
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    axios
+      .post("user/profile")
+      .then((response) => {
+        const newUser = response.data.user;
+        if (!user) {
+          setUser(newUser);
+        }
+      })
+      .catch((err) => console.log(err));
+  }, [user]);
+
   return (
     <div className="App">
-      <Router>
-        <Routes>
-          <Route exact path="/" element={<Welcome />}></Route>
-          <Route path="/signup" element={<SignUp />}></Route>
-          <Route path="/login" element={<LogIn />}></Route>
-          <Route path="/*" element={<Home />}></Route>
+      <AuthContext.Provider value={{user, setUser}}>
+        <Router>
+          <Routes>
+            <Route exact path="/" element={<Welcome />}></Route>
+            <Route path="/signup" element={<SignUp />}></Route>
+            <Route path="/login" element={<LogIn />}></Route>
+            <Route path="/*" element={<Home />}></Route>
 
-          {/* --------Conditional Routing--------  */}
-          {/* <Route
+            {/* --------Conditional Routing--------  */}
+            {/* <Route
             exact
             path="/"
             element={
@@ -55,8 +68,9 @@ function App() {
               </ProtectedRoute>
             }
           ></Route> */}
-        </Routes>
-      </Router>
+          </Routes>
+        </Router>
+      </AuthContext.Provider>
     </div>
   );
 }

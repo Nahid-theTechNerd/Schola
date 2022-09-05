@@ -10,15 +10,17 @@ import {
 import { Link } from "react-router-dom";
 import avatar from "../../Assets/Images/avatar.png";
 import Dropdown from "./Dropdown";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import AuthContext from "./../../Components/Auth";
 
 export default function Header() {
   const [visible, setVisible] = useState(false);
-  
 
   const profileOnclick = () => {
     setVisible(!visible);
   };
+
+  const {user} = useContext(AuthContext);
 
   return (
     <div
@@ -50,7 +52,7 @@ export default function Header() {
           <button onClick={profileOnclick}>
             <img src={avatar} alt="" />
           </button>
-          <Dropdown visible={visible}></Dropdown>
+          <Dropdown visible={visible} user={user}></Dropdown>
         </div>
       </div>
     </div>
