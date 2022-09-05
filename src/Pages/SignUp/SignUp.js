@@ -4,19 +4,32 @@ import { useForm } from "react-hook-form";
 import image from "../../Assets/Images/signup.png";
 import classes from "./SignUp.module.css";
 import { Link } from "react-router-dom";
+import AuthContext from "../../Components/Auth";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function SignUp() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+  const { setToken , setUser} = useContext(AuthContext);
+
   const onSubmit = (data) => {
     axios
       .post("user/register", data)
-      .then((response) => console.log(response))
+      .then((response) => {
+        console.log(response);
+        const token = response.data.token;
+        localStorage.setItem("user", token);
+        setToken(token);
+        setUser(null);
+        navigate("/dashboard");
+      })
       .catch((error) => console.log(error));
   };
 

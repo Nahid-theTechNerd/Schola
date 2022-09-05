@@ -4,14 +4,16 @@ import avatar from "../../Assets/Images/avatar.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import AuthContext from "../../Components/Auth";
 
 export default function Dropdown(props) {
-  // const fullname = props.user? props.user.name : "Nahid"
   const user = {
     name: props.user ? props.user.name : "Hello Mr.",
     role: props.user ? props.user.role : "Student",
-    
   };
+
+  const { setToken } = useContext(AuthContext);
 
   const navigate = useNavigate();
   return (
@@ -39,6 +41,7 @@ export default function Dropdown(props) {
         className="btn-gradient  gap-2 w-full"
         onClick={() => {
           localStorage.removeItem("token");
+          setToken(null);
           navigate("/login");
         }}
       >

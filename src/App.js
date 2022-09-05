@@ -12,9 +12,7 @@ import { useState, useEffect } from "react";
 function App() {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem("token"));
-
   axios.defaults.headers.common["Authorization"] = "Bearer " + token;
-
   useEffect(() => {
     axios
       .post("user/profile")

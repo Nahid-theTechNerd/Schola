@@ -9,9 +9,12 @@ import AddStudent from "../Add/AddStudent";
 import AddTeacher from "./../Add/AddTeacher";
 import Lesson from "../Lesson/Lesson";
 import Calendar from "../Calendar/Calendar";
+import { useContext } from "react";
+import AuthContext from "../../Components/Auth";
 
 export default function Home() {
-  const role = "teacher";
+  const { user } = useContext(AuthContext);
+  const role = user ? user.role : "student";
   return (
     <div
       className={`${classes.home} h-screen w-full flex flex-col overflow-hidden`}
