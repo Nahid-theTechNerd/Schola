@@ -14,7 +14,7 @@ export default function LessonCard(props) {
         {props.description}
       </p>
       <span className="category bg-[#30A1FF33] text-url text-[10px] px-2 py-[2px] rounded-full">
-        {props.category}
+        {props.category ? props.category : "Others"}
       </span>
       <div className="others_info flex justify-between items-end">
         <div>

@@ -1,44 +1,39 @@
 import React from "react";
 import LessonCard from "../../Components/LessonCard";
+import axios from "axios";
+import { useEffect } from "react";
 
 export default function AddTeacher() {
-  const cards = [
-    {
-      id: "1001",
-      title: "Solidity Programming Language",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut cupiditate adipisci, dignissimos obcaecati alias sed neque nam minima nobis tempora. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora, magni? Corrupti tempora aut ipsam iste maxime reprehenderit repellendus, eveniet voluptate dolore ipsa facilis tenetur! Molestias quaerat distinctio amet animi ad sit blanditiis similique ut natus in veniam dolorum quidem, corporis necessitatibus. Consectetur quis neque incidunt nulla repellat minima, aliquam maxime.",
-      category: "Programming",
-      price: "199",
-      date: "08/12/2022",
-      time: "08:30AM",
-    },
-    {
-      id: "2001",
-      title: "Solidity Programming Language",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut cupiditate adipisci, dignissimos obcaecati alias sed neque nam minima nobis tempora.",
-      category: "Programming",
-      price: "199",
-      date: "08/12/2022",
-      time: "08:30AM",
-    },
-  ];
+  const [request, setRequest] = React.useState([]);
+
+  useEffect(() => {
+    axios
+      .get("students-Class-Request")
+      .then((res) => {
+        const allRequest = res.data?.studentClassRequest;
+        console.log(allRequest);
+        const pendingRequest = allRequest.filter(
+          (request) => request?.status === "pending"
+        );
+        setRequest(pendingRequest);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <div className="mx-5 mt-5">
-      <h1 className="text-[20px] font-semibold mb-4">Take a lesson</h1>
-      <div className="flex  gap-8">
-        <div className="lessons w-[65%]">
-          {cards.map((card) => (
+      <h1 className="text-[20px] font-semibold mb-4 h-full">Take a lesson</h1>
+      <div className=" flex  gap-8">
+        <div className="lessons w-[65%] h-[calc(100vh-120px)] overflow-scroll">
+          {request.map((req) => (
             <LessonCard
-              key={card.id}
-              title={card.title}
-              description={card.description}
-              category={card.category}
-              price={card.price}
-              date={card.date}
-              time={card.time}
+              key={req?._id}
+              title={req?.title}
+              description={req?.description}
+              category={req?.category}
+              price={req?.price}
+              date={req?.date}
+              // time={req.time}
               path=""
               button="Take Lesson"
             ></LessonCard>
