@@ -88,6 +88,7 @@ export default function Tutorials() {
       <div className="flex flex-col gap-1 h-[calc(100vh-115px)] overflow-scroll">
         {tutorials.map((tutotial) => (
           <TutorialCard
+            key={tutotial.id}
             title={tutotial.title}
             id={tutotial.id}
             length={tutotial.length}

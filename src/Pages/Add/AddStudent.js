@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import classes from "./Add.module.css";
+import axios from "axios";
 
 export default function AddStudent() {
   const {
@@ -8,7 +9,12 @@ export default function AddStudent() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    axios
+      .post("student/makeclassRequest", data)
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
+  };
 
   const disablePastDate = () => {
     const today = new Date();
@@ -19,12 +25,26 @@ export default function AddStudent() {
   };
 
   // Category List here
+
   const categories = [
-    { value: "web_dev", name: "Web Development" },
-    { value: "android", name: "Android" },
-    { value: "physics", name: "Physics" },
-    { value: "chemistry", name: "Chemistry" },
-    { value: "blockchain", name: "Blockchain" },
+    { value: "Mobile Development", name: "Mobile Development" },
+    { value: "Data Science", name: "Data Science" },
+    { value: "Artificial Intelligence", name: "Artificial Intelligence" },
+    { value: "Machine Learning", name: "Machine Learning" },
+    { value: "Cloud Computing", name: "Cloud Computing" },
+    { value: "Blockchain", name: "Blockchain" },
+    { value: "Cryptocurrency", name: "Cryptocurrency" },
+    { value: "DevOps", name: "DevOps" },
+    { value: "Game Development", name: "Game Development" },
+    { value: "Hardware", name: "Hardware" },
+    { value: "Networking", name: "Networking" },
+    { value: "Programming", name: "Programming" },
+    { value: "Software", name: "Software" },
+    { value: "Virtualization", name: "Virtualization" },
+    { value: "Web Design", name: "Web Design" },
+    { value: "UI/UX Design", name: "UI/UX Design" },
+    { value: "Web Development", name: "Web Development" },
+    { value: "Other", name: "Other" },
   ];
 
   return (
@@ -98,9 +118,10 @@ export default function AddStudent() {
           <option disabled value="0">
             Select your level
           </option>
-          <option value="beginner">Beginner</option>
-          <option value="intermediate">Intermediate</option>
-          <option value="advance">Advance</option>
+
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advance</option>
         </select>
         <p className={classes.error_msg}>{errors.level?.message}</p>
         {/* Select lesson type  */}
