@@ -17,7 +17,7 @@ export default function SignUp() {
     formState: { errors },
   } = useForm();
 
-  const { setToken , setUser} = useContext(AuthContext);
+  const { setToken, setUser } = useContext(AuthContext);
 
   const onSubmit = (data) => {
     axios
