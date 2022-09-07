@@ -13,7 +13,7 @@ export default function Dropdown(props) {
     role: props.user ? props.user.role : "Student",
   };
 
-  const { setToken } = useContext(AuthContext);
+  const { setToken, setUser } = useContext(AuthContext);
 
   const navigate = useNavigate();
   return (
@@ -42,6 +42,7 @@ export default function Dropdown(props) {
         onClick={() => {
           localStorage.removeItem("token");
           setToken(null);
+          setUser(null);
           navigate("/login");
         }}
       >
