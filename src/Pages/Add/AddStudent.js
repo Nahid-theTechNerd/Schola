@@ -2,8 +2,18 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import classes from "./Add.module.css";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function AddStudent() {
+  const successMsg = (response) => {
+    toast("Great! Your response has been sent.");
+    console.log(response);
+  };
+  const errorMsg = (response) => {
+    toast("Error! Plese try again later.");
+    console.log(response);
+  };
   const {
     register,
     handleSubmit,
@@ -12,8 +22,8 @@ export default function AddStudent() {
   const onSubmit = (data) => {
     axios
       .post("student/makeclassRequest", data)
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error));
+      .then((response) => successMsg(response))
+      .catch((error) => errorMsg(error));
   };
 
   const disablePastDate = () => {
@@ -183,6 +193,7 @@ export default function AddStudent() {
           value="Request"
         />
       </form>
+      <ToastContainer />
     </div>
   );
 }
